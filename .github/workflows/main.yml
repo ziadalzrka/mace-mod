@@ -10,6 +10,11 @@ jobs:
       with:
         java-version: '8'
         distribution: 'temurin'
+    - name: Setup Gradle 4.10.3
+      run: |
+        wget https://services.gradle.org/distributions/gradle-4.10.3-bin.zip
+        unzip -d opt gradle-4.10.3-bin.zip
+        echo "$(pwd)/opt/gradle-4.10.3/bin" >> $GITHUB_PATH
     - name: Build with Gradle
       run: |
         gradle build --stacktrace
@@ -17,4 +22,4 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: MyMaceMod
-        path: build/libs/*.jar
+        path: build/libs/*.jar￼Enter
